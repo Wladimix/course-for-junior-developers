@@ -1,6 +1,33 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?
 $aMenuLinks = Array(
+	Array(
+		"Объявления", 
+		"/ads/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"О сервисе", 
+		"/servise/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Личный кабинет продавца", 
+		"/merchants_account/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Личный кабинет покупателя", 
+		"/buyers_account/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
 	Array(
 		"Компания", 
 		"company/", 
