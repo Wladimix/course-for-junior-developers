@@ -9,7 +9,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"О сервисе", 
-		"/servise/", 
+		"/service/", 
 		Array(), 
 		Array(), 
 		"" 
@@ -19,49 +19,14 @@ $aMenuLinks = Array(
 		"/merchants_account/", 
 		Array(), 
 		Array(), 
-		"" 
+		"CSite::InGroup(array(1,7))" 
 	),
 	Array(
 		"Личный кабинет покупателя", 
 		"/buyers_account/", 
 		Array(), 
 		Array(), 
-		"" 
-	),
-	Array(
-		"Компания", 
-		"company/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Новости", 
-		"news/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Продукция", 
-		"products/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Услуги", 
-		"services/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Контакты", 
-		"contacts/", 
-		Array(), 
-		Array(), 
-		"" 
+		"CSite::InGroup(array(1,6))" 
 	)
 );
 ?>
