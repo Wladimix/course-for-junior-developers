@@ -1,6 +1,6 @@
 <?
 $sSectionName = "Личный кабинет покупателя";
-$arDirProperties = Array(
+$arDirProperties = array(
    "description" => "Личный кабинет покупателя.",
    "keywords" => "покупателя, биржа недвижимости, объявления",
    "title" => "Личный кабинет покупателя."

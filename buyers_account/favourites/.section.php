@@ -1,6 +1,6 @@
 <?
 $sSectionName = "Избранное";
-$arDirProperties = Array(
+$arDirProperties = array(
    "description" => "Избранные объявления.",
    "keywords" => "покупатель, биржа недвижимости, объявления",
    "title" => "Избранные объявления"

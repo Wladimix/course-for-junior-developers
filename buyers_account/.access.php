@@ -1,4 +1,4 @@
 <?
+$PERM["favourites"]["6"]="R";
 $PERM["favourites"]["*"]="D";
-$PERM["favourites"]["6"]="X";
 ?>
