@@ -7,11 +7,11 @@ $APPLICATION->SetTitle("Обратная связь");
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:main.feedback",
 	"",
-	Array(
-		"EMAIL_TO" => "m.a.x.i.m.o.v@yandex.ru",
-		"EVENT_MESSAGE_ID" => array(),
-		"OK_TEXT" => "Спасибо, ваше сообщение принято.",
-		"REQUIRED_FIELDS" => array(),
-		"USE_CAPTCHA" => "Y"
+	array(
+	"EMAIL_TO" => "m.a.x.i.m.o.v@yandex.ru",	// E-mail, на который будет отправлено письмо
+		"EVENT_MESSAGE_ID" => "",	// Почтовые шаблоны для отправки письма
+		"OK_TEXT" => "Спасибо, ваше сообщение принято.",	// Сообщение, выводимое пользователю после отправки
+		"REQUIRED_FIELDS" => "",	// Обязательные поля для заполнения
+		"USE_CAPTCHA" => "Y",	// Использовать защиту от автоматических сообщений (CAPTCHA) для неавторизованных пользователей
 	)
 );?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
