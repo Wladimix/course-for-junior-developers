@@ -1,0 +1,1 @@
+<span class="d-none d-md-inline-block ml-2"><a href="mailto:info@domain.com">info@domain.com</a></span>
