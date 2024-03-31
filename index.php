@@ -1,11 +1,11 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("");
-?>...&nbsp;... <?
+?><?
 $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 ?> <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
-	".default", 
+	"slider", 
 	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
@@ -19,6 +19,7 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
+		"COMPONENT_TEMPLATE" => "slider",
 		"DETAIL_URL" => "",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"DISPLAY_DATE" => "Y",
@@ -27,7 +28,7 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
 		"FIELD_CODE" => array(
-			0 => "",
+			0 => "DETAIL_PICTURE",
 			1 => "",
 		),
 		"FILTER_NAME" => "sliderFilter",
@@ -37,7 +38,7 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"MESSAGE_404" => "",
-		"NEWS_COUNT" => "20",
+		"NEWS_COUNT" => "10",
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"PAGER_DESC_NUMBERING" => "N",
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -49,7 +50,7 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
 		"PROPERTY_CODE" => array(
-			0 => "",
+			0 => "COST",
 			1 => "",
 		),
 		"SET_BROWSER_TITLE" => "Y",
@@ -63,47 +64,14 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC",
-		"STRICT_SECTION_CHECK" => "N",
-		"COMPONENT_TEMPLATE" => ".default"
+		"STRICT_SECTION_CHECK" => "N"
 	),
 	false
 );?>
-<div class="slide-one-item home-slider owl-carousel">
-	<div class="site-blocks-cover" style="background-image: url(local/templates/.default/images/hero_bg_1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
-		<div class="text">
-			<h2>853 S Lucerne Blvd</h2>
-			<p class="location">
- <span class="property-icon icon-room"></span> Los Angeles, CA 90005
-			</p>
-			<p class="mb-2">
- <strong>$2,250,500</strong>
-			</p>
-			<p class="mb-0">
- <a href="#" class="text-uppercase small letter-spacing-1 font-weight-bold">More Details</a>
-			</p>
-		</div>
-	</div>
-	<div class="site-blocks-cover" style="background-image: url(local/templates/.default/images/hero_bg_3.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
-		<div class="text">
-			<h2>625 S. Berendo St</h2>
-			<p class="location">
- <span class="property-icon icon-room"></span>607 Los Angeles, CA 90005
-			</p>
-			<p class="mb-2">
- <strong>$2,250,500</strong>
-			</p>
-			<p class="mb-0">
- <a href="#" class="text-uppercase small letter-spacing-1 font-weight-bold">More Details</a>
-			</p>
-		</div>
-	</div>
-</div>
 <div class="py-5">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
-				<div class="feature d-flex align-items-start">
-					 <?$APPLICATION->IncludeComponent(
+			 <?$APPLICATION->IncludeComponent(
 	"bitrix:main.include",
 	"",
 	Array(
@@ -112,12 +80,7 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 		"EDIT_TEMPLATE" => "",
 		"PATH" => "/include/content/home_content_1.php"
 	)
-);?>
-				</div>
-			</div>
-			<div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
-				<div class="feature d-flex align-items-start">
-					 <?$APPLICATION->IncludeComponent(
+);?> <?$APPLICATION->IncludeComponent(
 	"bitrix:main.include",
 	"",
 	Array(
@@ -126,12 +89,7 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 		"EDIT_TEMPLATE" => "",
 		"PATH" => "/include/content/home_content_2.php"
 	)
-);?>
-				</div>
-			</div>
-			<div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
-				<div class="feature d-flex align-items-start">
-					 <?$APPLICATION->IncludeComponent(
+);?> <?$APPLICATION->IncludeComponent(
 	"bitrix:main.include",
 	"",
 	Array(
@@ -141,22 +99,21 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 		"PATH" => "/include/content/home_content_3.php"
 	)
 );?><br>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>
  <?$APPLICATION->IncludeComponent(
 	"bitrix:news.line",
-	"",
+	"new_ads",
 	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"CACHE_GROUPS" => "Y",
 		"CACHE_TIME" => "300",
 		"CACHE_TYPE" => "A",
+		"COMPONENT_TEMPLATE" => "new_ads",
 		"DETAIL_URL" => "",
-		"FIELD_CODE" => array("",""),
-		"IBLOCKS" => array("5"),
+		"FIELD_CODE" => array(0=>"PREVIEW_PICTURE",1=>"PROPERTY_COST",2=>"PROPERTY_SQUARE",3=>"PROPERTY_FLOORS",4=>"PROPERTY_BATHROOMS",5=>"PROPERTY_GARAGES",6=>"",),
+		"IBLOCKS" => array(0=>"5",),
 		"IBLOCK_TYPE" => "ads",
 		"NEWS_COUNT" => "9",
 		"SORT_BY1" => "ACTIVE_FROM",
@@ -164,205 +121,18 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC"
 	)
-);?>
-<div class="site-section site-section-sm bg-light">
-	<div class="container">
-		<div class="row mb-5">
-			<div class="col-12">
-				<div class="site-section-title">
-					<h2>New Properties for You</h2>
-				</div>
-			</div>
-		</div>
-		<div class="row mb-5">
-			<div class="col-md-6 col-lg-4 mb-4">
- <a href="property-details.html" class="prop-entry d-block"> <figure> <img alt="Image" src="/local/templates/.default/images/img_1.jpg" class="img-fluid"> </figure>
-				<div class="prop-text">
-					<div class="inner">
- <span class="price rounded">$1,930,000</span>
-						<h3 class="title">853 S Lucerne Blvd</h3>
-						<p class="location">
-							 Los Angeles, CA 90005
-						</p>
-					</div>
-					<div class="prop-more-info">
-						<div class="inner d-flex">
-							<div class="col">
-								 Area: <strong>240m<sup>2</sup></strong>
-							</div>
-							<div class="col">
-								 Beds: <strong>2</strong>
-							</div>
-							<div class="col">
-								 Baths: <strong>2</strong>
-							</div>
-							<div class="col">
-								 Garages: <strong>1</strong>
-							</div>
-						</div>
-					</div>
-				</div>
- </a>
-			</div>
-			<div class="col-md-6 col-lg-4 mb-4">
- <a href="property-details.html" class="prop-entry d-block"> <figure> <img alt="Image" src="/local/templates/.default/images/img_2.jpg" class="img-fluid"> </figure>
-				<div class="prop-text">
-					<div class="inner">
- <span class="price rounded">$2,438,000</span>
-						<h3 class="title">853 S Lucerne Blvd</h3>
-						<p class="location">
-							 Los Angeles, CA 90005
-						</p>
-					</div>
-					<div class="prop-more-info">
-						<div class="inner d-flex">
-							<div class="col">
-								 Area: <strong>240m<sup>2</sup></strong>
-							</div>
-							<div class="col">
-								 Beds: <strong>2</strong>
-							</div>
-							<div class="col">
-								 Baths: <strong>2</strong>
-							</div>
-							<div class="col">
-								 Garages: <strong>1</strong>
-							</div>
-						</div>
-					</div>
-				</div>
- </a>
-			</div>
-			<div class="col-md-6 col-lg-4 mb-4">
- <a href="property-details.html" class="prop-entry d-block"> <figure> <img alt="Image" src="/local/templates/.default/images/img_3.jpg" class="img-fluid"> </figure>
-				<div class="prop-text">
-					<div class="inner">
- <span class="price rounded">$5,320,000</span>
-						<h3 class="title">853 S Lucerne Blvd</h3>
-						<p class="location">
-							 Los Angeles, CA 90005
-						</p>
-					</div>
-					<div class="prop-more-info">
-						<div class="inner d-flex">
-							<div class="col">
-								 Area: <strong>240m<sup>2</sup></strong>
-							</div>
-							<div class="col">
-								 Beds: <strong>2</strong>
-							</div>
-							<div class="col">
-								 Baths: <strong>2</strong>
-							</div>
-							<div class="col">
-								 Garages: <strong>1</strong>
-							</div>
-						</div>
-					</div>
-				</div>
- </a>
-			</div>
-			<div class="col-md-6 col-lg-4 mb-4">
- <a href="property-details.html" class="prop-entry d-block"> <figure> <img alt="Image" src="/local/templates/.default/images/img_4.jpg" class="img-fluid"> </figure>
-				<div class="prop-text">
-					<div class="inner">
- <span class="price rounded">$2,350,000</span>
-						<h3 class="title">853 S Lucerne Blvd</h3>
-						<p class="location">
-							 Los Angeles, CA 90005
-						</p>
-					</div>
-					<div class="prop-more-info">
-						<div class="inner d-flex">
-							<div class="col">
-								 Area: <strong>240m<sup>2</sup></strong>
-							</div>
-							<div class="col">
-								 Beds: <strong>2</strong>
-							</div>
-							<div class="col">
-								 Baths: <strong>2</strong>
-							</div>
-							<div class="col">
-								 Garages: <strong>1</strong>
-							</div>
-						</div>
-					</div>
-				</div>
- </a>
-			</div>
-			<div class="col-md-6 col-lg-4 mb-4">
- <a href="property-details.html" class="prop-entry d-block"> <figure> <img alt="Image" src="/local/templates/.default/images/img_5.jpg" class="img-fluid"> </figure>
-				<div class="prop-text">
-					<div class="inner">
- <span class="price rounded">$1,550,000</span>
-						<h3 class="title">853 S Lucerne Blvd</h3>
-						<p class="location">
-							 Los Angeles, CA 90005
-						</p>
-					</div>
-					<div class="prop-more-info">
-						<div class="inner d-flex">
-							<div class="col">
-								 Area: <strong>240m<sup>2</sup></strong>
-							</div>
-							<div class="col">
-								 Beds: <strong>2</strong>
-							</div>
-							<div class="col">
-								 Baths: <strong>2</strong>
-							</div>
-							<div class="col">
-								 Garages: <strong>1</strong>
-							</div>
-						</div>
-					</div>
-				</div>
- </a>
-			</div>
-			<div class="col-md-6 col-lg-4 mb-4">
- <a href="property-details.html" class="prop-entry d-block"> <figure> <img alt="Image" src="/local/templates/.default/images/img_6.jpg" class="img-fluid"> </figure>
-				<div class="prop-text">
-					<div class="inner">
- <span class="price rounded">$4,291,000</span>
-						<h3 class="title">853 S Lucerne Blvd</h3>
-						<p class="location">
-							 Los Angeles, CA 90005
-						</p>
-					</div>
-					<div class="prop-more-info">
-						<div class="inner d-flex">
-							<div class="col">
-								 Area: <strong>240m<sup>2</sup></strong>
-							</div>
-							<div class="col">
-								 Beds: <strong>2</strong>
-							</div>
-							<div class="col">
-								 Baths: <strong>2</strong>
-							</div>
-							<div class="col">
-								 Garages: <strong>1</strong>
-							</div>
-						</div>
-					</div>
-				</div>
- </a>
-			</div>
-		</div>
-	</div>
-</div>
- <?$APPLICATION->IncludeComponent(
+);?> <?$APPLICATION->IncludeComponent(
 	"bitrix:news.line",
-	"",
+	"external_services",
 	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"CACHE_GROUPS" => "Y",
 		"CACHE_TIME" => "300",
 		"CACHE_TYPE" => "A",
+		"COMPONENT_TEMPLATE" => "external_services",
 		"DETAIL_URL" => "",
-		"FIELD_CODE" => array("",""),
-		"IBLOCKS" => array("6"),
+		"FIELD_CODE" => array(0=>"",1=>"PROPERTY_EX_RES",),
+		"IBLOCKS" => array(0=>"6",),
 		"IBLOCK_TYPE" => "services",
 		"NEWS_COUNT" => "6",
 		"SORT_BY1" => "ACTIVE_FROM",
@@ -370,78 +140,16 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC"
 	)
-);?>
-<div class="site-section">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-md-7 text-center mb-5">
-				<div class="site-section-title">
-					<h2>Our Services</h2>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6 col-lg-4 mb-4">
- <a href="#" class="service text-center border rounded"> <span class="icon flaticon-house"></span>
-				<h2 class="service-heading">Research Subburbs</h2>
-				<p>
- <span class="read-more">Learn More</span>
-				</p>
- </a>
-			</div>
-			<div class="col-md-6 col-lg-4 mb-4">
- <a href="#" class="service text-center border rounded"> <span class="icon flaticon-sold"></span>
-				<h2 class="service-heading">Sold Houses</h2>
-				<p>
- <span class="read-more">Learn More</span>
-				</p>
- </a>
-			</div>
-			<div class="col-md-6 col-lg-4 mb-4">
- <a href="#" class="service text-center border rounded"> <span class="icon flaticon-camera"></span>
-				<h2 class="service-heading">Security Priority</h2>
-				<p>
- <span class="read-more">Learn More</span>
-				</p>
- </a>
-			</div>
-			<div class="col-md-6 col-lg-4 mb-4">
- <a href="#" class="service text-center border rounded"> <span class="icon flaticon-house"></span>
-				<h2 class="service-heading">Research Subburbs</h2>
-				<p>
- <span class="read-more">Learn More</span>
-				</p>
- </a>
-			</div>
-			<div class="col-md-6 col-lg-4 mb-4">
- <a href="#" class="service text-center border rounded"> <span class="icon flaticon-sold"></span>
-				<h2 class="service-heading">Sold Houses</h2>
-				<p>
- <span class="read-more">Learn More</span>
-				</p>
- </a>
-			</div>
-			<div class="col-md-6 col-lg-4 mb-4">
- <a href="#" class="service text-center border rounded"> <span class="icon flaticon-camera"></span>
-				<h2 class="service-heading">Security Priority</h2>
-				<p>
- <span class="read-more">Learn More</span>
-				</p>
- </a>
-			</div>
-		</div>
-	</div>
-</div>
- <?$APPLICATION->IncludeComponent(
+);?> <?$APPLICATION->IncludeComponent(
 	"bitrix:news.line",
-	"",
+	"news_blog",
 	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"CACHE_GROUPS" => "Y",
 		"CACHE_TIME" => "300",
 		"CACHE_TYPE" => "A",
 		"DETAIL_URL" => "",
-		"FIELD_CODE" => array("",""),
+		"FIELD_CODE" => array("PREVIEW_TEXT","PREVIEW_PICTURE","DATE_CREATE",""),
 		"IBLOCKS" => array("1"),
 		"IBLOCK_TYPE" => "news",
 		"NEWS_COUNT" => "3",
@@ -450,48 +158,4 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC"
 	)
-);?>
-<div class="site-section bg-light">
-	<div class="container">
-		<div class="row justify-content-center mb-5">
-			<div class="col-md-7 text-center">
-				<div class="site-section-title">
-					<h2>Our Blog</h2>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="100">
- <a href="#"><img alt="Image" src="/local/templates/.default/images/img_4.jpg" class="img-fluid"></a>
-				<div class="p-4 bg-white">
- <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
-					<h2 class="h5 text-black mb-3"><a href="#">When To Sell &amp; How Much To Sell?</a></h2>
-					<p>
-						 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias enim, ipsa exercitationem veniam quae sunt.
-					</p>
-				</div>
-			</div>
-			<div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="200">
- <a href="#"><img alt="Image" src="/local/templates/.default/images/img_2.jpg" class="img-fluid"></a>
-				<div class="p-4 bg-white">
- <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
-					<h2 class="h5 text-black mb-3"><a href="#">When To Sell &amp; How Much To Sell?</a></h2>
-					<p>
-						 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias enim, ipsa exercitationem veniam quae sunt.
-					</p>
-				</div>
-			</div>
-			<div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="300">
- <a href="#"><img alt="Image" src="/local/templates/.default/images/img_3.jpg" class="img-fluid"></a>
-				<div class="p-4 bg-white">
- <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
-					<h2 class="h5 text-black mb-3"><a href="#">When To Sell &amp; How Much To Sell?</a></h2>
-					<p>
-						 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias enim, ipsa exercitationem veniam quae sunt.
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
- <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?> <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
