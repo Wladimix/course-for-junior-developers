@@ -1,6 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("");
+$APPLICATION->SetTitle("HomeSpace");
+$APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
 ?><?
 $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 ?> <?$APPLICATION->IncludeComponent(
