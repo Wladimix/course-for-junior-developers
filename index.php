@@ -17,7 +17,7 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 		"AJAX_OPTION_STYLE" => "Y",
 		"CACHE_FILTER" => "Y",
 		"CACHE_GROUPS" => "Y",
-		"CACHE_TIME" => "36000000",
+		"CACHE_TIME" => "300",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
 		"COMPONENT_TEMPLATE" => "slider",
