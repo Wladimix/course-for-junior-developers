@@ -131,7 +131,7 @@ $this->setFrameMode(true);
 								<span class="price rounded">$<?=$arItem["DISPLAY_PROPERTIES"]["COST"]["VALUE"]?></span>
 								<h3 class="title"><?=$arItem["NAME"]?></h3>
 								<p class="location">
-									Los Angeles, CA 90005
+									<?=$arItem["PREVIEW_TEXT"];?>
 								</p>
 							</div>
 							<div class="prop-more-info">

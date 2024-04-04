@@ -3,7 +3,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("HomeSpace");
 $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
 ?><?
-$GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
+$GLOBALS['sliderFilter'] = ["PROPERTY_PRIORITY_DEAL_VALUE"=>"Да"];
 ?> <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
 	"slider", 
@@ -29,8 +29,9 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
 		"FIELD_CODE" => array(
-			0 => "DETAIL_PICTURE",
-			1 => "",
+			0 => "PREVIEW_TEXT",
+			1 => "DETAIL_PICTURE",
+			2 => "",
 		),
 		"FILTER_NAME" => "sliderFilter",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
@@ -114,13 +115,14 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 		"COMPONENT_TEMPLATE" => "new_ads",
 		"DETAIL_URL" => "",
 		"FIELD_CODE" => array(
-			0 => "PREVIEW_PICTURE",
-			1 => "PROPERTY_COST",
-			2 => "PROPERTY_SQUARE",
-			3 => "PROPERTY_FLOORS",
-			4 => "PROPERTY_BATHROOMS",
-			5 => "PROPERTY_GARAGES",
-			6 => "",
+			0 => "PREVIEW_TEXT",
+			1 => "PREVIEW_PICTURE",
+			2 => "PROPERTY_COST",
+			3 => "PROPERTY_SQUARE",
+			4 => "PROPERTY_FLOORS",
+			5 => "PROPERTY_BATHROOMS",
+			6 => "PROPERTY_GARAGES",
+			7 => "",
 		),
 		"IBLOCKS" => array(
 			0 => "5",
@@ -146,7 +148,7 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 		"FIELD_CODE" => array(
 			0 => "",
 			1 => "PROPERTY_EX_RES",
-			2 => "",
+			2 => "PROPERTY_ICON",
 		),
 		"IBLOCKS" => array(
 			0 => "6",
@@ -160,30 +162,22 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 	),
 	false
 );?> <?$APPLICATION->IncludeComponent(
-	"bitrix:news.line", 
-	"news_blog", 
-	array(
+	"bitrix:news.line",
+	"news_blog",
+	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"CACHE_GROUPS" => "Y",
 		"CACHE_TIME" => "1800",
 		"CACHE_TYPE" => "A",
+		"COMPONENT_TEMPLATE" => "news_blog",
 		"DETAIL_URL" => "",
-		"FIELD_CODE" => array(
-			0 => "PREVIEW_TEXT",
-			1 => "PREVIEW_PICTURE",
-			2 => "DATE_CREATE",
-			3 => "",
-		),
-		"IBLOCKS" => array(
-			0 => "1",
-		),
+		"FIELD_CODE" => array(0=>"PREVIEW_TEXT",1=>"PREVIEW_PICTURE",2=>"DATE_CREATE",3=>"",),
+		"IBLOCKS" => array(0=>"1",),
 		"IBLOCK_TYPE" => "news",
 		"NEWS_COUNT" => "3",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
-		"SORT_ORDER2" => "ASC",
-		"COMPONENT_TEMPLATE" => "news_blog"
-	),
-	false
+		"SORT_ORDER2" => "ASC"
+	)
 );?> <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

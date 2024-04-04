@@ -23,11 +23,11 @@ $this->setFrameMode(true);
 		?>
 
 		<div id="<?=$this->GetEditAreaId($arItem['ID']);?>">
-			<div id="<?=$this->GetEditAreaId($arItem['ID']);?>" class="site-blocks-cover" style="background-image: url(<?=$arItem["DETAIL_PICTURE"]["SRC"]?>);" data-aos="fade" data-stellar-background-ratio="0.5">
+			<div class="site-blocks-cover" style="background-image: url(<?=$arItem["DETAIL_PICTURE"]["SRC"]?>);" data-aos="fade" data-stellar-background-ratio="0.5">
 				<div class="text">
 					<h2><?=$arItem["NAME"]?></h2>
 					<p class="location">
-						<span class="property-icon icon-room"></span> Los Angeles, CA 90005
+						<?=$arItem["PREVIEW_TEXT"];?>
 					</p>
 					<p class="mb-2">
 						<strong>$<?=$arItem["DISPLAY_PROPERTIES"]["COST"]["VALUE"]?></strong>

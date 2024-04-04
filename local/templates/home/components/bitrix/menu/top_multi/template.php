@@ -13,9 +13,8 @@
 
 			<ul class="site-menu js-clone-nav d-none d-lg-block">
 
-				<?
-				$previousLevel = 0;
-				foreach($arResult as $arItem):?>
+				<?$previousLevel = 0;?>
+				<?foreach($arResult as $arItem):?>
 
 					<?if ($previousLevel && $arItem["DEPTH_LEVEL"] < $previousLevel):?>
 						<?=str_repeat("</ul></li>", ($previousLevel - $arItem["DEPTH_LEVEL"]));?>
@@ -23,25 +22,12 @@
 
 					<?if ($arItem["IS_PARENT"]):?>
 
-						<?if ($arItem["DEPTH_LEVEL"] == 1):?>
-							<li class="<?if ($arItem["SELECTED"]):?>active has-children<?else:?>has-children<?endif?>"><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a>
-								<ul class="dropdown">
-						<?else:?>
-							<li class="<?if ($arItem["SELECTED"]):?>active has-children<?else:?>has-children<?endif?>"><a href="<?=$arItem["LINK"]?>" class="parent"><?=$arItem["TEXT"]?></a>
-								<ul class="dropdown">
-						<?endif?>
+						<li class="<?if ($arItem["SELECTED"]):?>active has-children<?else:?>has-children<?endif?>"><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a>
+							<ul class="dropdown">
 
 					<?else:?>
 
-						<?if ($arItem["PERMISSION"] > "D"):?>
-
-							<?if ($arItem["DEPTH_LEVEL"] == 1):?>
-								<li class="<?if ($arItem["SELECTED"]):?>active<?endif?>"><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
-							<?else:?>
-								<li class="<?if ($arItem["SELECTED"]):?>active<?endif?>"><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
-							<?endif?>
-
-						<?endif?>
+						<li class="<?if ($arItem["SELECTED"]):?>active <?endif?>"><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
 
 					<?endif?>
 

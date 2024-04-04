@@ -22,7 +22,7 @@
 			<div class="col-md-6 col-lg-6">
 				<ul class="list-unstyled">
 					<?foreach($arResult as $arItem):?>
-						<?if ($arItem["DEPTH_LEVEL"] == 2 && $arItem["CHAIN"][0] == "О сервисе"):?>
+						<?if ($arItem["DEPTH_LEVEL"] == 2):?>
 					
 							<li><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
 
