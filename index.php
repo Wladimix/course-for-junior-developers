@@ -17,7 +17,7 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 		"AJAX_OPTION_STYLE" => "Y",
 		"CACHE_FILTER" => "Y",
 		"CACHE_GROUPS" => "Y",
-		"CACHE_TIME" => "300",
+		"CACHE_TIME" => "10800",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
 		"COMPONENT_TEMPLATE" => "slider",
@@ -104,59 +104,86 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_13_VALUE"=>"Да"];
 	</div>
 </div>
  <?$APPLICATION->IncludeComponent(
-	"bitrix:news.line",
-	"new_ads",
-	Array(
+	"bitrix:news.line", 
+	"new_ads", 
+	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"CACHE_GROUPS" => "Y",
-		"CACHE_TIME" => "300",
+		"CACHE_TIME" => "10800",
 		"CACHE_TYPE" => "A",
 		"COMPONENT_TEMPLATE" => "new_ads",
 		"DETAIL_URL" => "",
-		"FIELD_CODE" => array(0=>"PREVIEW_PICTURE",1=>"PROPERTY_COST",2=>"PROPERTY_SQUARE",3=>"PROPERTY_FLOORS",4=>"PROPERTY_BATHROOMS",5=>"PROPERTY_GARAGES",6=>"",),
-		"IBLOCKS" => array(0=>"5",),
+		"FIELD_CODE" => array(
+			0 => "PREVIEW_PICTURE",
+			1 => "PROPERTY_COST",
+			2 => "PROPERTY_SQUARE",
+			3 => "PROPERTY_FLOORS",
+			4 => "PROPERTY_BATHROOMS",
+			5 => "PROPERTY_GARAGES",
+			6 => "",
+		),
+		"IBLOCKS" => array(
+			0 => "5",
+		),
 		"IBLOCK_TYPE" => "ads",
 		"NEWS_COUNT" => "9",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC"
-	)
+	),
+	false
 );?> <?$APPLICATION->IncludeComponent(
-	"bitrix:news.line",
-	"external_services",
-	Array(
+	"bitrix:news.line", 
+	"external_services", 
+	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"CACHE_GROUPS" => "Y",
-		"CACHE_TIME" => "300",
+		"CACHE_TIME" => "15768000",
 		"CACHE_TYPE" => "A",
 		"COMPONENT_TEMPLATE" => "external_services",
 		"DETAIL_URL" => "",
-		"FIELD_CODE" => array(0=>"",1=>"PROPERTY_EX_RES",),
-		"IBLOCKS" => array(0=>"6",),
+		"FIELD_CODE" => array(
+			0 => "",
+			1 => "PROPERTY_EX_RES",
+			2 => "",
+		),
+		"IBLOCKS" => array(
+			0 => "6",
+		),
 		"IBLOCK_TYPE" => "services",
 		"NEWS_COUNT" => "6",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC"
-	)
+	),
+	false
 );?> <?$APPLICATION->IncludeComponent(
-	"bitrix:news.line",
-	"news_blog",
-	Array(
+	"bitrix:news.line", 
+	"news_blog", 
+	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"CACHE_GROUPS" => "Y",
-		"CACHE_TIME" => "300",
+		"CACHE_TIME" => "1800",
 		"CACHE_TYPE" => "A",
 		"DETAIL_URL" => "",
-		"FIELD_CODE" => array("PREVIEW_TEXT","PREVIEW_PICTURE","DATE_CREATE",""),
-		"IBLOCKS" => array("1"),
+		"FIELD_CODE" => array(
+			0 => "PREVIEW_TEXT",
+			1 => "PREVIEW_PICTURE",
+			2 => "DATE_CREATE",
+			3 => "",
+		),
+		"IBLOCKS" => array(
+			0 => "1",
+		),
 		"IBLOCK_TYPE" => "news",
 		"NEWS_COUNT" => "3",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
-		"SORT_ORDER2" => "ASC"
-	)
+		"SORT_ORDER2" => "ASC",
+		"COMPONENT_TEMPLATE" => "news_blog"
+	),
+	false
 );?> <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
