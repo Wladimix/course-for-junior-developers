@@ -50,7 +50,4 @@ for ($index = 0; $index < $itemSize; $index++)
 }
 
 $strReturn .= '</div></div></div></div>';
-echo '<pre>';
-echo (empty($APPLICATION->arPageProperties));
-echo '</pre>';
 return $strReturn;
