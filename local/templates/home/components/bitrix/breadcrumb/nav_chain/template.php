@@ -1,6 +1,7 @@
 <?php
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
+
 /**
  * @global CMain $APPLICATION
  */
@@ -25,7 +26,7 @@ $strReturn = '
 		<div class="container">
 			<div class="row align-items-center justify-content-center text-center">
 				<div class="col-md-10">
-				<h1 class="mb-2">' . $lastPointTitle . '</h1>
+				<h1 class="mb-2">' . (!empty($APPLICATION->arPageProperties) ? $APPLICATION->arPageProperties['TITLE'] : $lastPointTitle) . '</h1>
 ';
 
 for ($index = 0; $index < $itemSize; $index++)
@@ -49,4 +50,7 @@ for ($index = 0; $index < $itemSize; $index++)
 }
 
 $strReturn .= '</div></div></div></div>';
+echo '<pre>';
+echo (empty($APPLICATION->arPageProperties));
+echo '</pre>';
 return $strReturn;
