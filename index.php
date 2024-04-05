@@ -162,22 +162,30 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_PRIORITY_DEAL_VALUE"=>"Да"];
 	),
 	false
 );?> <?$APPLICATION->IncludeComponent(
-	"bitrix:news.line",
-	"news_blog",
-	Array(
+	"bitrix:news.line", 
+	"news_blog", 
+	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"CACHE_GROUPS" => "Y",
 		"CACHE_TIME" => "1800",
 		"CACHE_TYPE" => "A",
 		"COMPONENT_TEMPLATE" => "news_blog",
 		"DETAIL_URL" => "",
-		"FIELD_CODE" => array(0=>"PREVIEW_TEXT",1=>"PREVIEW_PICTURE",2=>"DATE_CREATE",3=>"",),
-		"IBLOCKS" => array(0=>"1",),
+		"FIELD_CODE" => array(
+			0 => "PREVIEW_TEXT",
+			1 => "PREVIEW_PICTURE",
+			2 => "DATE_CREATE",
+			3 => "",
+		),
+		"IBLOCKS" => array(
+			0 => "7",
+		),
 		"IBLOCK_TYPE" => "news",
 		"NEWS_COUNT" => "3",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC"
-	)
+	),
+	false
 );?> <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
