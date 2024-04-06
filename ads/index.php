@@ -96,6 +96,7 @@ $APPLICATION->SetTitle("Объявления");
 		"USE_RSS" => "N",
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N",
+		"BLOCK_HEADER" => "Новые объекты недвижимости для вас",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
 			"section" => "",

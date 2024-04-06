@@ -28,6 +28,11 @@ $arTemplateParameters = array(
 		"DEFAULT" =>"N",
 		"REFRESH"=> "Y",
 	),
+	"BLOCK_HEADER" => Array(
+		"NAME" => GetMessage("T_IBLOCK_DESC_BLOCK_HEADER"),
+		"TYPE" => "STRING",
+		"DEFAULT" =>"Объявления",
+	),
 );
 
 if (($arCurrentValues['USE_SHARE'] ?? 'N') === 'Y')
