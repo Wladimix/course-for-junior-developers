@@ -1,7 +1,9 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Контакты");
-?><?$APPLICATION->IncludeComponent(
+?><div class="site-section">
+	<div class="container">
+		 <?$APPLICATION->IncludeComponent(
 	"bitrix:main.include",
 	"",
 	Array(
@@ -9,4 +11,6 @@ $APPLICATION->SetTitle("Контакты");
 		"AREA_FILE_SUFFIX" => "inc",
 		"EDIT_TEMPLATE" => ""
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?>
+	</div>
+</div><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
