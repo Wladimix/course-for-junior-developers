@@ -34,26 +34,26 @@
 </head>
 
 <body>
-  <?$APPLICATION->ShowPanel();?>
+  	<?$APPLICATION->ShowPanel();?>
   
-  <div class="site-loader"></div>
+  	<div class="site-loader"></div>
 
-  <div class="site-wrap">
+  	<div class="site-wrap">
 
-    <div class="site-mobile-menu">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
-        </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div> <!-- .site-mobile-menu -->
+		<div class="site-mobile-menu">
+			<div class="site-mobile-menu-header">
+				<div class="site-mobile-menu-close mt-3">
+					<span class="icon-close2 js-menu-toggle"></span>
+				</div>
+			</div>
+			<div class="site-mobile-menu-body"></div>
+		</div> <!-- .site-mobile-menu -->
 
-    <div class="border-bottom bg-white top-bar">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-6 col-md-6">
-            <p class="mb-0">
+		<div class="border-bottom bg-white top-bar">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-6 col-md-6">
+						<p class="mb-0">
 
 <?$APPLICATION->IncludeComponent(
 	"bitrix:main.include",
@@ -77,9 +77,21 @@
 	)
 );?>
 
-            </p>
-          </div>
-          
+						</p>
+					</div>
+					<div class="col-6 col-md-6 text-right">
+
+<?$APPLICATION->IncludeComponent(
+	"bitrix:main.include",
+	"",
+	Array(
+		"AREA_FILE_SHOW" => "file",
+		"AREA_FILE_SUFFIX" => "inc",
+		"EDIT_TEMPLATE" => "",
+		"PATH" => "/include/header/auth_link.php"
+	)
+);?>
+
 <?$APPLICATION->IncludeComponent(
 	"bitrix:main.include",
 	"",
@@ -91,13 +103,13 @@
 	)
 );?>
 
-        </div>
-      </div>
-
-    </div>
-    <div class="site-navbar">
-      <div class="container py-1">
-        <div class="row align-items-center">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="site-navbar">
+			<div class="container py-1">
+				<div class="row align-items-center">
 
 <?$APPLICATION->IncludeComponent(
 	"bitrix:main.include",
@@ -131,10 +143,10 @@
 	false
 );?>
 
-        </div>
-      </div>
-    </div>
-  </div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 <?$APPLICATION->IncludeComponent(
 	"bitrix:breadcrumb", 

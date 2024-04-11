@@ -4,10 +4,10 @@ $APPLICATION->SetTitle("HomeSpace");
 $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
 ?><?
 $GLOBALS['sliderFilter'] = ["PROPERTY_PRIORITY_DEAL_VALUE"=>"Да"];
-?> <?$APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"slider", 
-	array(
+?><?$APPLICATION->IncludeComponent(
+	"bitrix:news.list",
+	"slider",
+	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
 		"AJAX_MODE" => "N",
@@ -28,11 +28,7 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_PRIORITY_DEAL_VALUE"=>"Да"];
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array(
-			0 => "PREVIEW_TEXT",
-			1 => "DETAIL_PICTURE",
-			2 => "",
-		),
+		"FIELD_CODE" => array(0=>"PREVIEW_TEXT",1=>"DETAIL_PICTURE",2=>"",),
 		"FILTER_NAME" => "sliderFilter",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => "5",
@@ -51,10 +47,7 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_PRIORITY_DEAL_VALUE"=>"Да"];
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array(
-			0 => "COST",
-			1 => "",
-		),
+		"PROPERTY_CODE" => array(0=>"COST",1=>"",),
 		"SET_BROWSER_TITLE" => "Y",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "Y",
@@ -67,8 +60,7 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_PRIORITY_DEAL_VALUE"=>"Да"];
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N"
-	),
-	false
+	)
 );?>
 <div class="py-5">
 	<div class="container">
@@ -105,87 +97,60 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_PRIORITY_DEAL_VALUE"=>"Да"];
 	</div>
 </div>
  <?$APPLICATION->IncludeComponent(
-	"bitrix:news.line", 
-	"new_ads", 
-	array(
+	"bitrix:news.line",
+	"new_ads",
+	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"CACHE_GROUPS" => "Y",
 		"CACHE_TIME" => "10800",
 		"CACHE_TYPE" => "A",
 		"COMPONENT_TEMPLATE" => "new_ads",
 		"DETAIL_URL" => "",
-		"FIELD_CODE" => array(
-			0 => "PREVIEW_TEXT",
-			1 => "PREVIEW_PICTURE",
-			2 => "PROPERTY_COST",
-			3 => "PROPERTY_SQUARE",
-			4 => "PROPERTY_FLOORS",
-			5 => "PROPERTY_BATHROOMS",
-			6 => "PROPERTY_GARAGES",
-			7 => "",
-		),
-		"IBLOCKS" => array(
-			0 => "5",
-		),
+		"FIELD_CODE" => array(0=>"PREVIEW_TEXT",1=>"PREVIEW_PICTURE",2=>"PROPERTY_COST",3=>"PROPERTY_SQUARE",4=>"PROPERTY_FLOORS",5=>"PROPERTY_BATHROOMS",6=>"PROPERTY_GARAGES",7=>"",),
+		"IBLOCKS" => array(0=>"5",),
 		"IBLOCK_TYPE" => "ads",
 		"NEWS_COUNT" => "9",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC"
-	),
-	false
+	)
 );?> <?$APPLICATION->IncludeComponent(
-	"bitrix:news.line", 
-	"external_services", 
-	array(
+	"bitrix:news.line",
+	"external_services",
+	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"CACHE_GROUPS" => "Y",
 		"CACHE_TIME" => "15768000",
 		"CACHE_TYPE" => "A",
 		"COMPONENT_TEMPLATE" => "external_services",
 		"DETAIL_URL" => "",
-		"FIELD_CODE" => array(
-			0 => "",
-			1 => "PROPERTY_EX_RES",
-			2 => "PROPERTY_ICON",
-		),
-		"IBLOCKS" => array(
-			0 => "6",
-		),
+		"FIELD_CODE" => array(0=>"",1=>"PROPERTY_EX_RES",2=>"PROPERTY_ICON",),
+		"IBLOCKS" => array(0=>"6",),
 		"IBLOCK_TYPE" => "services",
 		"NEWS_COUNT" => "6",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC"
-	),
-	false
+	)
 );?> <?$APPLICATION->IncludeComponent(
-	"bitrix:news.line", 
-	"news_blog", 
-	array(
+	"bitrix:news.line",
+	"news_blog",
+	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"CACHE_GROUPS" => "Y",
 		"CACHE_TIME" => "1800",
 		"CACHE_TYPE" => "A",
 		"COMPONENT_TEMPLATE" => "news_blog",
 		"DETAIL_URL" => "",
-		"FIELD_CODE" => array(
-			0 => "PREVIEW_TEXT",
-			1 => "PREVIEW_PICTURE",
-			2 => "DATE_CREATE",
-			3 => "",
-		),
-		"IBLOCKS" => array(
-			0 => "7",
-		),
+		"FIELD_CODE" => array(0=>"PREVIEW_TEXT",1=>"PREVIEW_PICTURE",2=>"DATE_CREATE",3=>"",),
+		"IBLOCKS" => array(0=>"7",),
 		"IBLOCK_TYPE" => "news",
 		"NEWS_COUNT" => "3",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC"
-	),
-	false
+	)
 );?> <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
