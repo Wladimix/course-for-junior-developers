@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -11,7 +11,152 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-?>
+
+define('GALLERY_TILE', 'galleryTile');
+define('GALLERY_SLIDER', 'gallerySlider');
+
+/**
+* Проверить, многоуровневый массив или нет
+*
+* @param  array $array
+* @return bool
+*/
+function checkArrayForMultidimensionality($array)
+{
+	return count($array, COUNT_RECURSIVE) !== count($array);
+}
+
+/**
+* Отобразить одну картинку галереи
+*
+* @param  string $src
+* @param  string $originalName
+* @param  string $galleryType
+* @return void
+*/
+function displayOneGalleryImage($src, $originalName, $galleryType)
+{
+	$result = '';
+	if ($galleryType === GALLERY_TILE)
+	{
+		$result = '
+			<div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+				<a
+					href="' . $src . '"
+					class="image-popup gal-item"
+				>
+					<img
+						src="' . $src . '"
+						alt="' . $originalName . '"
+						class="img-fluid"
+					>
+				</a>
+			</div>
+		';
+	}
+	elseif ($galleryType === GALLERY_SLIDER)
+	{
+		$result = '
+			<div>
+				<img
+					src="' . $src . '"
+					alt="' . $originalName . '"
+					class="img-fluid"
+				>
+			</div>
+		';
+	}
+	echo $result;
+}
+
+/**
+* Отобразить несколько картинок галереи
+*
+* @param  array  $fileValue
+* @param  string $galleryType
+* @return void
+*/
+function displayGalleryImages($fileValue, $galleryType)
+{
+
+	$result = '';
+	if ($galleryType === GALLERY_TILE)
+	{
+		foreach ($fileValue as $arPictureValue)
+		{
+			$result .= '
+				<div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+					<a
+						href="' . $arPictureValue["SRC"] . '"
+						class="image-popup gal-item"
+					>
+						<img
+							src="' . $arPictureValue["SRC"] . '"
+							alt="' . $arPictureValue["ORIGINAL_NAME"] . '"
+							class="img-fluid"
+						>
+					</a>
+				</div>
+			';
+		}
+	}
+	elseif ($galleryType === GALLERY_SLIDER)
+	{
+		foreach ($fileValue as $arPictureValue)
+		{
+			$result .= '
+				<div>
+					<img
+						src="' . $arPictureValue["SRC"] . '"
+						alt="' . $arPictureValue["ORIGINAL_NAME"] . '"
+						class="img-fluid"
+					>
+				</div>
+			';
+		}
+	}
+	echo $result;
+}
+
+/**
+* Отобразить один доп. материал
+*
+* @param  string $src
+* @param  string $originalName
+* @return void
+*/
+function displayOneAdditionalMaterial($src, $originalName)
+{
+	$result = '
+		<li>
+			<a href="' . $src . '" download>' . $originalName . '</a>
+		</li>
+	';
+	echo '<ul>' . $result . '</ul>';
+}
+
+/**
+* Отобразить несколько доп. материалов
+*
+* @param  array  $fileValue
+* @return void
+*/
+function displayAdditionalMaterials($fileValue)
+{
+
+	$result = '';
+	foreach ($fileValue as $arAdditionalMaterialValue)
+	{
+		$result .= '
+			<li>
+				<a href="' . $arAdditionalMaterialValue["SRC"] . '" download>'
+					. $arAdditionalMaterialValue["ORIGINAL_NAME"] .
+				'</a>
+			</li>
+		';
+	}
+	echo '<ul>' . $result . '</ul>';
+}?>
 
 <div class="site-blocks-cover overlay aos-init aos-animate" style="background-image: url(<?=$arResult["DETAIL_PICTURE"]["SRC"]?>); background-position: 50% 120.008px;" data-aos="fade" data-stellar-background-ratio="0.5">
 	<div class="container">
@@ -32,15 +177,32 @@ $this->setFrameMode(true);
 					<div class="slide-one-item home-slider owl-carousel">
 
 						<?if (array_key_exists("PICS_ADS", $arResult["DISPLAY_PROPERTIES"])):?>
-							<?foreach ($arResult["DISPLAY_PROPERTIES"]["PICS_ADS"]["VALUE"] as $pictureValue):?>
-								<div>
-									<img
-										src="<?=CFile::GetPath($pictureValue)?>"
-										alt="<?=CFile::GetFileArray($pictureValue)["ORIGINAL_NAME"]?>"
-										class="img-fluid"
-									>
-								</div>
-							<?endforeach;?>
+
+							<?
+								if (checkArrayForMultidimensionality($arResult["DISPLAY_PROPERTIES"]["PICS_ADS"]["FILE_VALUE"]))
+								{
+									displayGalleryImages(
+										$arResult["DISPLAY_PROPERTIES"]["PICS_ADS"]["FILE_VALUE"],
+										GALLERY_SLIDER
+									);
+								}
+								else
+								{
+									displayOneGalleryImage(
+										$arResult["DISPLAY_PROPERTIES"]["PICS_ADS"]["FILE_VALUE"]["SRC"],
+										$arResult["DISPLAY_PROPERTIES"]["PICS_ADS"]["FILE_VALUE"]["ORIGINAL_NAME"],
+										GALLERY_SLIDER
+									);
+								}
+							?>
+
+						<?else:?>
+							<div
+								class="d-flex justify-content-center align-items-center"
+								style="width: 730px; height: 730px; background-color: rgba(255, 255, 128, .5);"
+							>
+								<p class="text-center" style="font-size: 50px;"><?=GetMessage("LACK_OF_IMAGES");?></p>
+							</div>
 						<?endif;?>
 
 					</div>
@@ -79,28 +241,70 @@ $this->setFrameMode(true);
 					</div>
 
               		<h2 class="h4 text-black"><?=GetMessage("MORE_INFO");?></h2>
-					<?=$arResult["DETAIL_TEXT"]?>
+					<p><?=$arResult["DETAIL_TEXT"]?></p>
 
 					<div class="row mt-5">
-						<div class="col-12">
-							<h2 class="h4 text-black mb-3"><?=GetMessage("PROPERTY_GALERY");?></h2>
-						</div>
 
 						<?if (array_key_exists("PICS_ADS", $arResult["DISPLAY_PROPERTIES"])):?>
-							<?foreach ($arResult["DISPLAY_PROPERTIES"]["PICS_ADS"]["VALUE"] as $pictureValue):?>
-								<div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-									<a
-										href="<?=CFile::GetPath($pictureValue)?>"
-										class="image-popup gal-item"
-									>
-										<img
-											src="<?=CFile::GetPath($pictureValue)?>"
-											alt="<?=CFile::GetFileArray($pictureValue)["ORIGINAL_NAME"]?>"
-											class="img-fluid"
-										>
-									</a>
-								</div>
-							<?endforeach;?>
+
+							<div class="col-12">
+								<h2 class="h4 text-black mb-3"><?=GetMessage("PROPERTY_GALERY");?></h2>
+							</div>
+
+							<?
+								if (checkArrayForMultidimensionality($arResult["DISPLAY_PROPERTIES"]["PICS_ADS"]["FILE_VALUE"]))
+								{
+									displayGalleryImages(
+										$arResult["DISPLAY_PROPERTIES"]["PICS_ADS"]["FILE_VALUE"],
+										GALLERY_TILE
+									);
+								}
+								else
+								{
+									displayOneGalleryImage(
+										$arResult["DISPLAY_PROPERTIES"]["PICS_ADS"]["FILE_VALUE"]["SRC"],
+										$arResult["DISPLAY_PROPERTIES"]["PICS_ADS"]["FILE_VALUE"]["ORIGINAL_NAME"],
+										GALLERY_TILE
+									);
+								}
+							?>
+
+						<?endif;?>
+
+						<?if (array_key_exists("ADD_MAT", $arResult["DISPLAY_PROPERTIES"])):?>
+							<div class="col-12">
+								<h2 class="h4 text-black"><?=GetMessage("ADDITIONAL_MATERIALS");?></h2>
+
+								<?
+									if (checkArrayForMultidimensionality($arResult["DISPLAY_PROPERTIES"]["ADD_MAT"]["FILE_VALUE"]))
+									{
+										displayAdditionalMaterials(
+											$arResult["DISPLAY_PROPERTIES"]["ADD_MAT"]["FILE_VALUE"]
+										);
+									}
+									else
+									{
+										displayOneAdditionalMaterial(
+											$arResult["DISPLAY_PROPERTIES"]["ADD_MAT"]["FILE_VALUE"]["SRC"],
+											$arResult["DISPLAY_PROPERTIES"]["ADD_MAT"]["FILE_VALUE"]["ORIGINAL_NAME"]
+										);
+									}
+								?>
+
+							</div>
+						<?endif;?>
+
+						<?if (array_key_exists("EX_RES", $arResult["DISPLAY_PROPERTIES"])):?>
+							<div class="col-12">
+								<h2 class="h4 text-black"><?=GetMessage("LINKS_TO_EXTERNAL_RESOURCES");?></h2>
+								<ul>
+									<?foreach ($arResult["DISPLAY_PROPERTIES"]["EX_RES"]["VALUE"] as $linkToExternalResource):?>
+										<li>
+											<a href="<?=$linkToExternalResource?>"><?=$linkToExternalResource?></a>
+										</li>
+									<?endforeach;?>
+								</ul>
+							</div>
 						<?endif;?>
 
 					</div>
@@ -133,39 +337,5 @@ $this->setFrameMode(true);
 				</div>
           	</div>
         </div>
-		<div class="row">
-			<div class="col-lg-8">
-
-				<?if (array_key_exists("ADD_MAT", $arResult["DISPLAY_PROPERTIES"])):?>
-					<h2 class="h4 text-black"><?=GetMessage("ADDITIONAL_MATERIALS");?></h2>
-					<ul>
-						<?foreach ($arResult["DISPLAY_PROPERTIES"]["ADD_MAT"]["VALUE"] as $fileValue):?>
-							<li>
-								<a href="<?=CFile::GetPath($fileValue)?>" download>
-									<?=CFile::GetFileArray($fileValue)["ORIGINAL_NAME"]?>
-								</a>
-							</li>
-						<?endforeach;?>
-					</ul>
-				<?endif;?>
-
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-8">
-
-				<?if (array_key_exists("EX_RES", $arResult["DISPLAY_PROPERTIES"])):?>
-					<h2 class="h4 text-black"><?=GetMessage("LINKS_TO_EXTERNAL_RESOURCES");?></h2>
-					<ul>
-						<?foreach ($arResult["DISPLAY_PROPERTIES"]["EX_RES"]["VALUE"] as $linkToExternalResource):?>
-							<li>
-								<a href="<?=$linkToExternalResource?>"><?=$linkToExternalResource?></a>
-							</li>
-						<?endforeach;?>
-					</ul>
-				<?endif;?>
-
-			</div>
-		</div>
     </div>
 </div>

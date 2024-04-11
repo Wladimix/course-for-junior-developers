@@ -9,4 +9,5 @@ $MESS["MORE_INFO"] = "Детальная информация";
 $MESS["PROPERTY_GALERY"] = "Галерея изображений";
 $MESS["ADDITIONAL_MATERIALS"] = "Дополнительные материалы";
 $MESS["LINKS_TO_EXTERNAL_RESOURCES"] = "Ссылки на внешние ресурсы";
+$MESS["LACK_OF_IMAGES"] = "изображения отсутствуют";
 ?>
