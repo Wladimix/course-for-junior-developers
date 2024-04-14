@@ -97,24 +97,36 @@ $GLOBALS['sliderFilter'] = ["PROPERTY_PRIORITY_DEAL_VALUE"=>"Да"];
 	</div>
 </div>
  <?$APPLICATION->IncludeComponent(
-	"bitrix:news.line",
-	"new_ads",
-	Array(
+	"bitrix:news.line", 
+	"new_ads", 
+	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"CACHE_GROUPS" => "Y",
 		"CACHE_TIME" => "10800",
 		"CACHE_TYPE" => "A",
 		"COMPONENT_TEMPLATE" => "new_ads",
 		"DETAIL_URL" => "",
-		"FIELD_CODE" => array(0=>"PREVIEW_TEXT",1=>"PREVIEW_PICTURE",2=>"PROPERTY_COST",3=>"PROPERTY_SQUARE",4=>"PROPERTY_FLOORS",5=>"PROPERTY_BATHROOMS",6=>"PROPERTY_GARAGES",7=>"",),
-		"IBLOCKS" => array(0=>"5",),
+		"FIELD_CODE" => array(
+			0 => "PREVIEW_TEXT",
+			1 => "PREVIEW_PICTURE",
+			2 => "PROPERTY_COST",
+			3 => "PROPERTY_SQUARE",
+			4 => "PROPERTY_FLOORS",
+			5 => "PROPERTY_BATHROOMS",
+			6 => "PROPERTY_GARAGES",
+			7 => "",
+		),
+		"IBLOCKS" => array(
+			0 => "5",
+		),
 		"IBLOCK_TYPE" => "ads",
 		"NEWS_COUNT" => "9",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC"
-	)
+	),
+	false
 );?> <?$APPLICATION->IncludeComponent(
 	"bitrix:news.line",
 	"external_services",
