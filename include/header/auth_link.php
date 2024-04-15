@@ -1,1 +1,1 @@
-<a class="mr-3" href="<?SITE_DIR?>/user/authorization.php">авторизация</a>
+<a class="mr-3" href="<?SITE_DIR?>/login">авторизация</a>
