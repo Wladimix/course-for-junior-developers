@@ -16,17 +16,6 @@ define('GALLERY_TILE', 'galleryTile');
 define('GALLERY_SLIDER', 'gallerySlider');
 
 /**
-* Проверить, многоуровневый массив или нет
-*
-* @param  array $array
-* @return bool
-*/
-function checkArrayForMultidimensionality($array)
-{
-	return count($array, COUNT_RECURSIVE) !== count($array);
-}
-
-/**
 * Отобразить одну картинку галереи
 *
 * @param  string $src
@@ -179,7 +168,7 @@ function displayAdditionalMaterials($fileValue)
 						<?if (array_key_exists("PICS_ADS", $arResult["DISPLAY_PROPERTIES"])):?>
 
 							<?
-								if (checkArrayForMultidimensionality($arResult["DISPLAY_PROPERTIES"]["PICS_ADS"]["FILE_VALUE"]))
+								if (count($arResult["DISPLAY_PROPERTIES"]["PICS_ADS"]["VALUE"]) > 1)
 								{
 									displayGalleryImages(
 										$arResult["DISPLAY_PROPERTIES"]["PICS_ADS"]["FILE_VALUE"],
@@ -252,7 +241,7 @@ function displayAdditionalMaterials($fileValue)
 							</div>
 
 							<?
-								if (checkArrayForMultidimensionality($arResult["DISPLAY_PROPERTIES"]["PICS_ADS"]["FILE_VALUE"]))
+								if (count($arResult["DISPLAY_PROPERTIES"]["PICS_ADS"]["VALUE"]) > 1)
 								{
 									displayGalleryImages(
 										$arResult["DISPLAY_PROPERTIES"]["PICS_ADS"]["FILE_VALUE"],
@@ -276,7 +265,7 @@ function displayAdditionalMaterials($fileValue)
 								<h2 class="h4 text-black"><?=GetMessage("ADDITIONAL_MATERIALS");?></h2>
 
 								<?
-									if (checkArrayForMultidimensionality($arResult["DISPLAY_PROPERTIES"]["ADD_MAT"]["FILE_VALUE"]))
+									if (count($arResult["DISPLAY_PROPERTIES"]["ADD_MAT"]["VALUE"]) > 1)
 									{
 										displayAdditionalMaterials(
 											$arResult["DISPLAY_PROPERTIES"]["ADD_MAT"]["FILE_VALUE"]
