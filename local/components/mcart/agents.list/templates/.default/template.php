@@ -33,7 +33,7 @@ $userId = $USER->GetID();
             <div class="mb-5">
                 <div class="agent__card">
                     <div class="small-info">
-                        <div class="avatar" style="background-image: url(<?=$agent["UF_PHOTO_SRC"] ? $agent["UF_PHOTO_SRC"] : '/local/components/mcart/agents.list/templates/.default/images/no-avatar.png'?>)"></div>
+                        <div class="avatar" style="background-image: url(<?=$agent["UF_PHOTO_SRC"] ? $agent["UF_PHOTO_SRC"] : $templateFolder . '/images/no-avatar.png'?>)"></div>
                         <div class="info">
                             <div class="name"><?=$agent["UF_FULL_NAME"]?></div>
                         </div>
