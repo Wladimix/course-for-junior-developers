@@ -27,7 +27,7 @@ $APPLICATION->SetTitle("Отзывы");
 		),
 		"DETAIL_PAGER_SHOW_ALL" => "Y",
 		"DETAIL_PAGER_TEMPLATE" => "",
-		"DETAIL_PAGER_TITLE" => "Отзывы",
+		"DETAIL_PAGER_TITLE" => "Страница",
 		"DETAIL_PROPERTY_CODE" => array(
 			0 => "POSITION",
 			1 => "COMPANY",
@@ -53,8 +53,7 @@ $APPLICATION->SetTitle("Отзывы");
 		"LIST_PROPERTY_CODE" => array(
 			0 => "POSITION",
 			1 => "COMPANY",
-			2 => "PROPERTY_DOCUMENTS",
-			3 => "",
+			2 => "",
 		),
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",
@@ -62,7 +61,7 @@ $APPLICATION->SetTitle("Отзывы");
 		"NEWS_COUNT" => "2",
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"PAGER_DESC_NUMBERING" => "N",
-		"PAGER_DESC_NUMBERING_CACHE_TIME" => "7200",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
 		"PAGER_SHOW_ALL" => "N",
 		"PAGER_SHOW_ALWAYS" => "N",
 		"PAGER_TEMPLATE" => ".default",
@@ -87,7 +86,7 @@ $APPLICATION->SetTitle("Отзывы");
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N",
 		"COMPONENT_TEMPLATE" => "rew",
-		"SEF_FOLDER" => "/s2/otzyvy/",
+		"SEF_FOLDER" => "/s3/rew/",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
 			"section" => "",
