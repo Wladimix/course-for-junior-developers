@@ -40,9 +40,7 @@ $this->setFrameMode(true);
 				<?endif;?>
 
 				<span class="review-block-description">
-					<?if($arParams["DISPLAY_DATE"]!="N" && $arItem["DISPLAY_ACTIVE_FROM"]):?>
-						<?echo $arItem["DISPLAY_ACTIVE_FROM"]?>,
-					<?endif;?>
+					<?echo $arItem["DISPLAY_ACTIVE_FROM"]?> г.,
 					<?echo $arItem["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"]?>,
 					<?echo $arItem["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"]?>
 				</span>

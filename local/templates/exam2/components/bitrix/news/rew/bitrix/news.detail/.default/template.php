@@ -39,22 +39,6 @@ function displayDocuments($fileValue)
 	}
 	echo '<div class="exam-review-doc"><p>' . GetMessage("DETAIL_DOCUMENTS_TITLE") . ':</p>'. $result . '</div>';
 }
-
-$APPLICATION->SetPageProperty(
-	"title",
-	$arResult["NAME"] ? ("Отзыв - " . $arResult["NAME"]) : ''
-);
-$APPLICATION->SetTitle(
-	"Отзыв - " . (($arResult["NAME"] && $arResult["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"]) ? ($arResult["NAME"] . " - " . $arResult["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"]) : '')
-);
-$APPLICATION->SetPageProperty(
-	"keywords",
-	"лучшие, отзывы" . ($arResult["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"] ? (" ," . $arResult["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"]) : '')
-);
-$APPLICATION->SetPageProperty(
-	"description", 
-	$arResult["PREVIEW_TEXT"] ? $arResult["PREVIEW_TEXT"] : ''
-);
 ?>
 
 <hr>
@@ -69,18 +53,10 @@ $APPLICATION->SetPageProperty(
 		<?endif;?>
 
 		<div class="review-autor">
-			<?if($arParams["DISPLAY_NAME"]!="N" && $arResult["NAME"]):?>
-				<?=$arResult["NAME"]?>,
-			<?endif;?>
-			<?if($arParams["DISPLAY_DATE"]!="N" && $arResult["DISPLAY_ACTIVE_FROM"]):?>
-				<?=$arResult["DISPLAY_ACTIVE_FROM"]?>,
-			<?endif;?>
-			<?if($arResult["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"]):?>
-				<?=$arResult["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"]?>,
-			<?endif;?>
-			<?if($arResult["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"]):?>
-				<?=$arResult["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"]?>.
-			<?endif;?>
+			<?=$arResult["NAME"]?>,
+			<?=$arResult["DISPLAY_ACTIVE_FROM"]?> г.,
+			<?=$arResult["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"]?>,
+			<?=$arResult["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"]?>.
 		</div>
 	</div>
 	

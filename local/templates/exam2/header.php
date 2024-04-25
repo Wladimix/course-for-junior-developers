@@ -2,21 +2,6 @@
 use Bitrix\Main\Page\Asset;
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 IncludeTemplateLangFile(__FILE__);
-
-function displayContactInformation()
-{
-	$contactInformation = 'store@store.ru';
-
-	$startWorkTime = mktime(9, 0, 0);
-	$endWorkTime = mktime(18, 0, 0);
-	$currentTime = mktime(date('H'), date('i'), date('s'), date('m'), date('d'), date('Y'));
-
-	if ($currentTime >= $startWorkTime && $currentTime <= $endWorkTime) {
-		$contactInformation = '8 (495) 212-85-06';
-	}
-
-	return $contactInformation;
-}
 ?>
 
 <!DOCTYPE html>
@@ -37,8 +22,8 @@ function displayContactInformation()
 	<?Asset::GetInstance()->AddJs(SITE_TEMPLATE_PATH . '/js/owl.carousel.min.js');?>
 	<?Asset::GetInstance()->AddJs(SITE_TEMPLATE_PATH . '/js/scripts.js');?>
 
-    <link rel="icon" type="image/vnd.microsoft.icon"  href="./img/favicon.ico">
-    <link rel="shortcut icon" href="./img/favicon.ico">
+    <?Asset::getInstance()->addString('<link rel="icon" type="image/vnd.microsoft.icon"  href="'. SITE_TEMPLATE_PATH . '/img/favicon.ico">');?>
+    <?Asset::getInstance()->addString('<link rel="shortcut icon" href="' . SITE_TEMPLATE_PATH . '/img/favicon.ico">');?>
 </head>
 
 <body>
@@ -51,7 +36,11 @@ function displayContactInformation()
                 <div class="logo-block"><a href="" class="logo">Мебельный магазин</a>
                 </div>
                 <div class="main-phone-block">
-                    <a href="tel:84952128506" class="phone"><?=displayContactInformation()?></a>
+                    <?if (date('H') >= 9 && date('H') < 18):?>
+                    	<a href="tel:84952128506" class="phone">8 (495) 212-85-06</a>
+					<?else:?>
+						<a href="mailto:store@store.ru" class="phone">store@store.ru</a>
+					<?endif;?>
                     <div class="shedule">время работы с 9-00 до 18-00</div>
                 </div>
                 <div class="actions-block">
@@ -98,7 +87,7 @@ function displayContactInformation()
 		"MENU_CACHE_GET_VARS" => array(
 		),
 		"MENU_CACHE_TIME" => "3600",
-		"MENU_CACHE_TYPE" => "N",
+		"MENU_CACHE_TYPE" => "A",
 		"MENU_CACHE_USE_GROUPS" => "Y",
 		"ROOT_MENU_TYPE" => "top",
 		"USE_EXT" => "N",
@@ -108,6 +97,7 @@ function displayContactInformation()
 );?>
         <!-- /nav -->
 		<!-- breadcrumbs -->
+		<?if($APPLICATION->GetCurPage() != SITE_DIR):?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:breadcrumb", 
 	"nav_chain", 
@@ -119,6 +109,7 @@ function displayContactInformation()
 	),
 	false
 );?>
+		<?endif;?>
 		<!-- /breadcrumbs -->
         <!-- page -->
         <div class="page">
