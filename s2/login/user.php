@@ -4,4 +4,14 @@ $APPLICATION->SetPageProperty("title", "Профиль");
 $APPLICATION->SetPageProperty("keywords", "профиль");
 $APPLICATION->SetPageProperty("description", "Профиль пользователя");
 $APPLICATION->SetTitle("Профиль");
-?>Text here....<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+?><?$APPLICATION->IncludeComponent(
+	"bitrix:main.profile",
+	"",
+	Array(
+		"CHECK_RIGHTS" => "N",
+		"SEND_INFO" => "N",
+		"SET_TITLE" => "Y",
+		"USER_PROPERTY" => array(),
+		"USER_PROPERTY_NAME" => ""
+	)
+);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

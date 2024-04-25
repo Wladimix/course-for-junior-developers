@@ -72,7 +72,7 @@ $arUrlRewrite=array (
     'PATH' => '/s4/products/index.php',
     'SORT' => 100,
   ),
-  24 => 
+  30 => 
   array (
     'CONDITION' => '#^/s2/otzyvy/#',
     'RULE' => '',
@@ -126,6 +126,14 @@ $arUrlRewrite=array (
     'RULE' => '',
     'ID' => 'bitrix:news',
     'PATH' => '/s4/rew/index.php',
+    'SORT' => 100,
+  ),
+  31 => 
+  array (
+    'CONDITION' => '#^/s2/rew/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/s2/rew/index.php',
     'SORT' => 100,
   ),
   16 => 

@@ -43,7 +43,7 @@ if($arResult["FORM_TYPE"] == "login")
 					<input type="password" placeholder="<?=GetMessage("AUTH_PASSWORD")?>" name="USER_PASSWORD" maxlength="50" size="17" autocomplete="off" />			
 				</div>
 				<div class="frm-row">
-					<a href="<?=$arParams["LOG_URL"]?>?forgot_password=yes" class="btn-forgot"><?=GetMessage("AUTH_FORGOT_PASSWORD_2")?></a>
+					<a href="<?=SITE_DIR . $arParams["FORGOT_PASSWORD_URL"];?>" class="btn-forgot"><?=GetMessage("AUTH_FORGOT_PASSWORD_2")?></a>
 				</div>
 				<div class="frm-row">
 					<div class="frm-chk">
@@ -77,7 +77,7 @@ if($arResult["FORM_TYPE"] == "login")
 					?>
 				<?endif?>
 			</form></li>
-		<li><a href="<?=$arParams["LOG_URL"]?>?register=yes"><?=GetMessage("AUTH_REGISTER")?></a></li>
+		<li><a href="<?=SITE_DIR . $arParams["REGISTER_URL"];?>"><?=GetMessage("AUTH_REGISTER")?></a></li>
 	</ul>
 </nav>
 <?
@@ -86,10 +86,10 @@ if($arResult["FORM_TYPE"] == "login")
 <nav class="menu-block">
 	<ul>
 		<li>
-			<a title="<?=GetMessage("AUTH_PROFILE")?>" href="<?=$arParams["PROFILE_URL"]?>"><?=$arResult["USER_NAME"]?> [<?=$arResult["USER_LOGIN"]?>]</a>
+			<a title="<?=GetMessage("AUTH_PROFILE")?>" href="<?=SITE_DIR . $arParams["PROFILE_URL"]?>"><?=$arResult["USER_NAME"]?> [<?=$arResult["USER_LOGIN"]?>]</a>
 		</li>
 		<li>
-			<a href="<?=$arParams["AUTH_URL"]?>?logout=yes&sessid=<?echo bitrix_sessid();?>"><?=GetMessage("AUTH_LOGOUT_BUTTON")?></a>
+			<a href="?logout=yes&sessid=<?echo bitrix_sessid();?>"><?=GetMessage("AUTH_LOGOUT_BUTTON")?></a>
 		</li>
 	</ul>
 </nav>

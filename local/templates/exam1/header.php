@@ -2,21 +2,6 @@
 use Bitrix\Main\Page\Asset;
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 IncludeTemplateLangFile(__FILE__);
-
-function displayContactInformation()
-{
-    $contactInformation = 'store@store.ru';
-
-    $startWorkTime = mktime(9, 0, 0);
-    $endWorkTime = mktime(18, 0, 0);
-    $currentTime = mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y"));
-
-    if ($currentTime <= $endWorkTime && $currentTime >= $startWorkTime) {
-        $contactInformation = '8 (495) 212-85-06';
-    }
-    
-    return $contactInformation;
-}
 ?>
 
 <!DOCTYPE html>
@@ -37,9 +22,8 @@ function displayContactInformation()
     <?Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/owl.carousel.min.js');?>
     <?Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/scripts.js');?>
 
-
-    <link rel="icon" type="image/vnd.microsoft.icon"  href="<?=SITE_TEMPLATE_PATH?>/img/favicon.ico">
-    <link rel="shortcut icon" href="<?=SITE_TEMPLATE_PATH?>/img/favicon.ico">
+    <?Asset::getInstance()->addString('<link rel="icon" type="image/vnd.microsoft.icon"  href="'. SITE_TEMPLATE_PATH . '/img/favicon.ico">');?>
+    <?Asset::getInstance()->addString('<link rel="shortcut icon" href="' . SITE_TEMPLATE_PATH . '/img/favicon.ico">');?>
 </head>
 
 <body>
@@ -52,7 +36,11 @@ function displayContactInformation()
                 <div class="logo-block"><a href="" class="logo">Мебельный магазин</a>
                 </div>
                 <div class="main-phone-block">
-                    <a href="tel:84952128506" class="phone"><?=displayContactInformation()?></a>
+					<?if (date('H') >= 9 && date('H') < 18):?>
+                    	<a href="tel:84952128506" class="phone">8 (495) 212-85-06</a>
+					<?else:?>
+						<a href="mailto:store@store.ru" class="phone">store@store.ru</a>
+					<?endif;?>
                     <div class="shedule">время работы с 9-00 до 18-00</div>
                 </div>
                 <div class="actions-block">
@@ -65,9 +53,9 @@ function displayContactInformation()
 	"demo", 
 	array(
 		"LOG_URL" => "/s2/login/",
-		"REGISTER_URL" => "register.php",
-		"FORGOT_PASSWORD_URL" => "",
-		"PROFILE_URL" => "user.php",
+		"REGISTER_URL" => "/login/?register=yes",
+		"FORGOT_PASSWORD_URL" => "/login/?forgot_password=yes",
+		"PROFILE_URL" => "/login/user.php",
 		"SHOW_ERRORS" => "Y",
 		"COMPONENT_TEMPLATE" => "demo"
 	),
@@ -89,7 +77,7 @@ function displayContactInformation()
 		"MENU_CACHE_GET_VARS" => array(
 		),
 		"MENU_CACHE_TIME" => "3600",
-		"MENU_CACHE_TYPE" => "N",
+		"MENU_CACHE_TYPE" => "A",
 		"MENU_CACHE_USE_GROUPS" => "Y",
 		"ROOT_MENU_TYPE" => "top",
 		"USE_EXT" => "N",
@@ -98,16 +86,19 @@ function displayContactInformation()
 	false
 );?>
         <!-- /nav -->
-
-<?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "template1", Array(
-	"PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
-		"SITE_ID" => "s2",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
-		"START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
-		"COMPONENT_TEMPLATE" => ".default"
+		<?if($APPLICATION->GetCurPage() != SITE_DIR):?>
+<?$APPLICATION->IncludeComponent(
+	"bitrix:breadcrumb", 
+	"template1", 
+	array(
+		"PATH" => "",
+		"SITE_ID" => "s2",
+		"START_FROM" => "0",
+		"COMPONENT_TEMPLATE" => "template1"
 	),
 	false
 );?>
-
+		<?endif;?>
         <!-- page -->
         <div class="page">
 			<!-- content box -->
