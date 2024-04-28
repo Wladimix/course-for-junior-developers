@@ -14,15 +14,13 @@ $this->setFrameMode(true);?>
 
 <div class="rew-footer-carousel">
 	<?foreach($arResult["ITEMS"] as $arItem):?>
-
-		<?$resizeImage = CFile::ResizeImageGet($arItem['PREVIEW_PICTURE'], array('width'=>39, 'height'=>39), BX_RESIZE_IMAGE_PROPORTIONAL);?>
-
 		<div class="item">
 			<div class="side-block side-opin">
 				<div class="inner-block">
 					<div class="title">
 						<div class="photo-block">
 							<?if ($arItem["PREVIEW_PICTURE"]):?>
+								<?$resizeImage = CFile::ResizeImageGet($arItem['PREVIEW_PICTURE'], array('width'=>39, 'height'=>39), BX_RESIZE_IMAGE_PROPORTIONAL);?>
 								<img
 									class="preview_picture"
 									border="0"

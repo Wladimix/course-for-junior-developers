@@ -1,5 +1,13 @@
 <?
+$PERM["bitrix"]["2"]="D";
+$PERM["bitrix"]["3"]="D";
+$PERM["bitrix"]["4"]="D";
+$PERM["bitrix"]["6"]="D";
+$PERM["bitrix"]["7"]="D";
 $PERM["bitrix"]["8"]="D";
+$PERM["bitrix"]["11"]="D";
+$PERM["bitrix"]["10"]="D";
+$PERM["bitrix"]["5"]="D";
 $PERM["bitrix"]["*"]="R";
 $PERM["/"]["*"]="R";
 $PERM["buyers_account"]["6"]="R";
