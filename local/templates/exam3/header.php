@@ -53,9 +53,9 @@ IncludeTemplateLangFile(__FILE__);
 	"bitrix:system.auth.form", 
 	"demo", 
 	array(
-		"FORGOT_PASSWORD_URL" => "/login/?forgot_password=yes",
-		"PROFILE_URL" => "/login/user.php",
-		"REGISTER_URL" => "/login/?register=yes",
+		"FORGOT_PASSWORD_URL" => "/s4/login/?forgot_password=yes",
+		"PROFILE_URL" => "/s4/login/user.php",
+		"REGISTER_URL" => "/s4/login/?register=yes",
 		"SHOW_ERRORS" => "N",
 		"COMPONENT_TEMPLATE" => "demo"
 	),
@@ -80,8 +80,9 @@ IncludeTemplateLangFile(__FILE__);
 		"MENU_CACHE_TYPE" => "A",
 		"MENU_CACHE_USE_GROUPS" => "Y",
 		"ROOT_MENU_TYPE" => "top",
-		"USE_EXT" => "N",
-		"COMPONENT_TEMPLATE" => "horizontal_multilevel"
+		"USE_EXT" => "Y",
+		"COMPONENT_TEMPLATE" => "horizontal_multilevel",
+		"CACHE_SELECTED_ITEMS" => "Y"
 	),
 	false
 );?>

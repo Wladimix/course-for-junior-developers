@@ -15,15 +15,13 @@ $this->setFrameMode(true);
 
 <div class="rew-footer-carousel">
 	<?foreach($arResult["ITEMS"] as $arItem):?>
-
-		<?$resizeImage = CFile::ResizeImageGet($arItem['PREVIEW_PICTURE'], array('width'=>39, 'height'=>39), BX_RESIZE_IMAGE_PROPORTIONAL);?>
-
 		<div class="item">
 			<div class="side-block side-opin">
 				<div class="inner-block">
 					<div class="title">
 						<div class="photo-block">
 							<?if ($arItem["PREVIEW_PICTURE"]):?>
+								<?$resizeImage = CFile::ResizeImageGet($arItem['PREVIEW_PICTURE'], array('width'=>39, 'height'=>39), BX_RESIZE_IMAGE_PROPORTIONAL);?>
 								<img
 									class="preview_picture"
 									border="0"
@@ -36,7 +34,7 @@ $this->setFrameMode(true);
 								<img
 									class="preview_picture"
 									border="0"
-									src="<?=SITE_DIR?>/upload/no_photo_left_block.jpg"
+									src="<?=SITE_DIR?>upload/no_photo_left_block.jpg"
 									alt="<?=GetMessage("REW_LIST_FOOTER_NO_PHOTO")?>"
 									title="<?=GetMessage("REW_LIST_FOOTER_NO_PHOTO")?>"
 									style="float:left"
