@@ -53,9 +53,9 @@ IncludeTemplateLangFile(__FILE__);
 	"demo", 
 	array(
 		"LOG_URL" => "/s2/login/",
-		"REGISTER_URL" => "/login/?register=yes",
-		"FORGOT_PASSWORD_URL" => "/login/?forgot_password=yes",
-		"PROFILE_URL" => "/login/user.php",
+		"REGISTER_URL" => "/s2/login/?register=yes",
+		"FORGOT_PASSWORD_URL" => "/s2/login/?forgot_password=yes",
+		"PROFILE_URL" => "/s2/login/user.php",
 		"SHOW_ERRORS" => "Y",
 		"COMPONENT_TEMPLATE" => "demo"
 	),
