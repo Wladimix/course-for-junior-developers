@@ -51,7 +51,6 @@ $this->setFrameMode(true);
 				<?endif;?>
 			</div>
 		</div>
-		<div class="review-img-wrap"><a href="#"><img src="img/rew/photo_1.jpg" alt="img"></a></div>
 
 		<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
 			<?if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
@@ -121,3 +120,9 @@ $this->setFrameMode(true);
 <?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
 	<br /><?=$arResult["NAV_STRING"]?>
 <?endif;?>
+
+<?
+echo '<pre>';
+print_r($arResult);
+echo '</pre>';
+?>
