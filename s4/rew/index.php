@@ -47,7 +47,7 @@ $APPLICATION->SetTitle("Отзывы");
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"LIST_ACTIVE_DATE_FORMAT" => "j F Y",
 		"LIST_FIELD_CODE" => array(
-			0 => "",
+			0 => "DETAIL_PICTURE",
 			1 => "",
 		),
 		"LIST_PROPERTY_CODE" => array(

@@ -52,18 +52,19 @@ $this->setFrameMode(true);
 			</div>
 		</div>
 
-		<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
+		<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["DETAIL_PICTURE"])):?>
+
+			<?$resizeImage = CFile::ResizeImageGet($arItem['DETAIL_PICTURE'], array('width'=>68, 'height'=>50), BX_RESIZE_IMAGE_EXACT);?>
+
 			<?if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
 				<div class="review-img-wrap">
 					<a href="<?=$arItem["DETAIL_PAGE_URL"]?>">
 						<img
 							class="preview_picture"
 							border="0"
-							src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>"
-							width="<?=$arItem["PREVIEW_PICTURE"]["WIDTH"]?>"
-							height="<?=$arItem["PREVIEW_PICTURE"]["HEIGHT"]?>"
-							alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>"
-							title="<?=$arItem["PREVIEW_PICTURE"]["TITLE"]?>"
+							src="<?=$resizeImage["src"]?>"
+							alt="<?=$arItem["DETAIL_PICTURE"]["ALT"]?>"
+							title="<?=$arItem["DETAIL_PICTURE"]["TITLE"]?>"
 							style="float:left"
 						/>
 					</a>
@@ -73,15 +74,14 @@ $this->setFrameMode(true);
 					<img
 						class="preview_picture"
 						border="0"
-						src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>"
-						width="<?=$arItem["PREVIEW_PICTURE"]["WIDTH"]?>"
-						height="<?=$arItem["PREVIEW_PICTURE"]["HEIGHT"]?>"
-						alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>"
-						title="<?=$arItem["PREVIEW_PICTURE"]["TITLE"]?>"
+						src="<?=$resizeImage["src"]?>"
+						alt="<?=$arItem["DETAIL_PICTURE"]["ALT"]?>"
+						title="<?=$arItem["DETAIL_PICTURE"]["TITLE"]?>"
 						style="float:left"
 					/>
 				</div>
 			<?endif;?>
+
 		<?else:?>
 			<?if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
 				<div class="review-img-wrap">

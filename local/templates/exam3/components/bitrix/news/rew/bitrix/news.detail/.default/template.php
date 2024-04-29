@@ -11,8 +11,6 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-
-$resizeImage = CFile::ResizeImageGet($arResult['DETAIL_PICTURE'], array('width'=>68, 'height'=>50), BX_RESIZE_IMAGE_EXACT);
 ?>
 
 <hr>
@@ -36,7 +34,9 @@ $resizeImage = CFile::ResizeImageGet($arResult['DETAIL_PICTURE'], array('width'=
 			<img
 				class="detail_picture"
 				border="0"
-				src="<?=$resizeImage["src"]?>"
+				src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>"
+				width="<?=$arResult["DETAIL_PICTURE"]["WIDTH"]?>"
+				height="<?=$arResult["DETAIL_PICTURE"]["HEIGHT"]?>"
 				alt="<?=$arResult["DETAIL_PICTURE"]["ALT"]?>"
 				title="<?=$arResult["DETAIL_PICTURE"]["TITLE"]?>"
 			/>
